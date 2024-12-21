@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { CreatePromise } from "@/components/create-promise";
 import { AddCharity } from "@/components/add-charity";
-import type { PromiseFormValues, CharityFormValues } from "@/lib/schemas";
+import type { PromiseFormValues, CharityFormValues } from "../../lib/schemas";
 
 export default function CreatePage() {
   const [step, setStep] = useState(1);
