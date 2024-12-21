@@ -28,9 +28,11 @@ export function Header() {
           </Link>
         </li>
       </ul>
-      <Button className="bg-[#1A4B84] hidden md:block text-off-white hover:bg-primary/90">
-        Get Started
-      </Button>
+      <Link href="/create">
+        <Button className="bg-[#1A4B84] hidden md:block text-off-white hover:bg-primary/90">
+          Get Started
+        </Button>
+      </Link>
     </nav>
   );
 }
