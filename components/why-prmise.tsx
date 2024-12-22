@@ -1,7 +1,6 @@
 "use client";
 
 import { Check } from "lucide-react";
-import { ThumbsUp } from "lucide-react";
 import Image from "next/image";
 import wpbg from "../public/images/wpbg.png";
 import { Icons } from "./icons";
