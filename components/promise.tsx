@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
 export function Promise() {
   return (
@@ -22,6 +22,5 @@ export function Promise() {
       <Button size="lg">Make Your Promise</Button>
       <p className="mt-4 text-sm text-muted-foreground">100% Non-Profit</p>
     </section>
-  )
+  );
 }
-

@@ -61,7 +61,7 @@ export function AddCharity({
     defaultValues: {
       charity: formData.charity || "",
       amount: formData.amount || 100,
-      customAmount: formData.customAmount,
+      customAmount: formData.customAmount || 0,
     },
   });
 

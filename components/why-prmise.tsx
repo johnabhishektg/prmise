@@ -1,59 +1,81 @@
-'use client'
+"use client";
 
-import { Check } from 'lucide-react'
-import { ThumbsUp } from 'lucide-react'
+import { Check } from "lucide-react";
+import { ThumbsUp } from "lucide-react";
+import Image from "next/image";
+import wpbg from "../public/images/wpbg.png";
+import { Icons } from "./icons";
 
 export function WhyPrmise() {
   return (
-    <section className="py-20 bg-primary relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M30 0c16.569 0 30 13.431 30 30S46.569 60 30 60 0 46.569 0 30 13.431 0 30 0zm8 15c-1.105 0-2 .895-2 2v26c0 1.105.895 2 2 2s2-.895 2-2V17c0-1.105-.895-2-2-2z\' fill=\'%23FFFFFF\' fill-opacity=\'0.1\' fill-rule=\'evenodd\'/%3E%3C/svg%3E')] bg-repeat" />
-      <div className="container mx-auto px-4 relative">
-        <div className="text-center mb-12">
-          <h2 className="text-xl text-off-white font-primary uppercase mb-4">WHY PROMISE?</h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-off-white font-primary">Either way, you win</h3>
-        </div>
+    <section className="relative md:h-screen pb-12 md:pb-0 flex items-center justify-center md:bg-secondary bg-[#F15C41]">
+      <Image
+        src={wpbg}
+        alt={""}
+        className="hidden md:block md:w-[1171px] md:h-[854px] px-4 "
+      />
+      <div className="container mx-auto px-4 md:absolute md:left-12 md:bottom-1/4">
+        <header className="flex justify-center items-center mb-8">
+          <div className="pt-6 pb-3">
+            <h6 className="text-sm md:text-[24px] md:mb-1 text-secondary-foreground font-bold text-center">
+              WHY PRMISE?
+            </h6>
+            <div className="text-3xl md:text-6xl text-[#FEFFF9] font-semibold">
+              Either way, you win.
+            </div>
+          </div>
+        </header>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto relative">
+        <div className="grid md:grid-cols-3 max-w-5xl mx-auto relative">
           {/* Left Card */}
-          <div className="bg-off-white rounded-3xl p-8">
-            <div className="inline-block rounded-full px-6 py-2 border-2 border-[#22C55E] text-[#22C55E] font-primary mb-6">
+          <div className="bg-off-white rounded-3xl p-8 text-center mx-8 md:m-0">
+            <div className="inline-block rounded-full px-6 py-1 border-[1px] border-[#22C55E] text-[#22C55E] bg-[#F7FEF9] font-primary mb-6">
               Finish Task
             </div>
 
-            <div className="bg-[#F0FDF4] rounded-2xl p-4 mb-8 flex items-center gap-3">
-              <div className="bg-[#22C55E] rounded-full p-1">
-                <Check className="h-4 w-4 text-white" />
+            <div className="bg-[#F0FDF4] border-[0.5px] border-secondary rounded-2xl p-4 mb-8 ">
+              <div className="flex items-center gap-3">
+                <div className="bg-[#22C55E] rounded-full p-1">
+                  <Check className="h-4 w-4 text-white" />
+                </div>
+                <p className="font-primary text-left">
+                  You stuck to your promise!{" "}
+                  <span className="text-primary font-semibold">₹100</span> will
+                  stay in your account.
+                </p>
               </div>
-              <p className="font-primary">
-                You stuck to your promise!{' '}
-                <span className="text-primary font-semibold">₹100</span>{' '}
-                will stay in your account.
-              </p>
             </div>
 
-            <ul className="space-y-4">
-              <li className="flex items-center gap-3">
-                <ThumbsUp className="h-5 w-5 text-primary" />
-                <span className="font-primary">Build a better life for yourself</span>
+            <ul className="space-y-4 text-left">
+              <li className="flex items-center gap-1">
+                <Icons.logoPointGreen className="h-6 w-6 text-[#62B96C]" />
+                <span className="font-primary">
+                  Build a better life for yourself
+                </span>
               </li>
-              <li className="flex items-center gap-3">
-                <ThumbsUp className="h-5 w-5 text-primary" />
-                <span className="font-primary">Prove to yourself that you can follow through.</span>
+              <li className="flex items-center gap-1">
+                <Icons.logoPointGreen className="h-8 w-8 text-[#62B96C]" />
+                <span className="font-primary">
+                  Prove to yourself that you can follow through.
+                </span>
               </li>
-              <li className="flex items-center gap-3">
-                <ThumbsUp className="h-5 w-5 text-primary" />
-                <span className="font-primary">Build a better life for <span className="text-primary">yourself</span></span>
+              <li className="flex items-center gap-1">
+                <Icons.logoPointGreen className="h-6 w-6 stroke-[#62B96C]" />
+                <span className="font-primary">
+                  Build a better life for{" "}
+                  <span className="text-primary">yourself</span>
+                </span>
               </li>
             </ul>
           </div>
 
-          <div className="flex items-center justify-center text-off-white text-4xl font-primary absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 md:static md:transform-none">
+          <div className="flex items-center justify-center text-off-white text-5xl font-semibold font-primary my-8 md:m-0">
             Or
           </div>
 
           {/* Right Card */}
-          <div className="bg-off-white rounded-3xl p-8">
-            <div className="inline-block rounded-full px-6 py-2 border-2 border-[#EF4444] text-[#EF4444] font-primary mb-6">
+          <div className="bg-off-white rounded-3xl p-8 text-center mx-8 md:m-0">
+            <div className="inline-block rounded-full px-6 py-1 border-[1px] border-[#EF4444] text-[#EF4444] bg-[#FFF6F6] font-primary mb-6">
               Fail Task
             </div>
 
@@ -61,31 +83,37 @@ export function WhyPrmise() {
               <div className="bg-[#EF4444] rounded-full p-1">
                 <Check className="h-4 w-4 text-white" />
               </div>
-              <p className="font-primary">
-                Let's try better next time!{' '}
-                <span className="text-primary font-semibold">₹150</span>{' '}
-                will go to Animal Welfare!
+              <p className="font-primary text-left">
+                Let's try better next time!{" "}
+                <span className="text-primary font-semibold">₹150</span> will go
+                to Animal Welfare!
               </p>
             </div>
 
-            <ul className="space-y-4">
-              <li className="flex items-center gap-3">
-                <ThumbsUp className="h-5 w-5 text-primary" />
-                <span className="font-primary">Contribute to curing cancer</span>
+            <ul className="space-y-4 text-left">
+              <li className="flex items-center gap-1">
+                <Icons.logoPointRed className="h-6 w-6 stroke-[#62B96C]" />
+                <span className="font-primary">
+                  Contribute to curing cancer
+                </span>
               </li>
-              <li className="flex items-center gap-3">
-                <ThumbsUp className="h-5 w-5 text-primary" />
+              <li className="flex items-center gap-1">
+                <Icons.logoPointRed className="h-6 w-6 stroke-[#62B96C]" />
                 <span className="font-primary">Help fund girls' education</span>
               </li>
-              <li className="flex items-center gap-3">
-                <ThumbsUp className="h-5 w-5 text-primary" />
-                <span className="font-primary">Build a <span className="text-primary">better life for someone else</span></span>
+              <li className="flex items-center gap-1">
+                <Icons.logoPointRed className="h-6 w-6 stroke-[#62B96C]" />
+                <span className="font-primary">
+                  Build a{" "}
+                  <span className="text-primary">
+                    better life for someone else
+                  </span>
+                </span>
               </li>
             </ul>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
-
