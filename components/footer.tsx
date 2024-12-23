@@ -9,8 +9,8 @@ export function Footer() {
           <div className="flex justify-center items-center p-6">
             <div>
               <h1 className="font-normal text-xl md:text-5xl">
-                “Self-confidence comes from making <br /> and keeping promises
-                to yourself”
+                “Self-confidence comes from making and keeping promises to
+                yourself”
               </h1>
               <p className="font-primary md:text-left text-center text-xs md:text-md tracking-wide mt-2">
                 - Chris Williamson
