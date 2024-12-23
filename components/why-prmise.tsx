@@ -3,11 +3,13 @@
 import { Check } from "lucide-react";
 import Image from "next/image";
 import wpbg from "../public/images/wpbg.png";
+import failTask from "../public/images/failtask.png";
+import doneTask from "../public/images/donetask.png";
 import { Icons } from "./icons";
 
 export function WhyPrmise() {
   return (
-    <section className="relative md:h-screen pb-12 md:pb-0 flex items-center justify-center md:bg-secondary bg-[#F15C41]">
+    <section className="relative md:h-screen pb-12 md:pb-0 flex items-center justify-center md:bg-secondary bg-primary">
       <Image
         src={wpbg}
         alt={""}
@@ -32,17 +34,8 @@ export function WhyPrmise() {
               Finish Task
             </div>
 
-            <div className="bg-[#F0FDF4] border-[0.5px] border-secondary rounded-2xl p-4 mb-8 ">
-              <div className="flex items-center gap-3">
-                <div className="bg-[#22C55E] rounded-full p-1">
-                  <Check className="h-4 w-4 text-white" />
-                </div>
-                <p className="font-primary text-left">
-                  You stuck to your promise!{" "}
-                  <span className="text-primary font-semibold">₹100</span> will
-                  stay in your account.
-                </p>
-              </div>
+            <div className="flex items-center mb-4">
+              <Image width={362} height={102} src={doneTask} alt={""} />
             </div>
 
             <ul className="space-y-4 text-left">
@@ -78,15 +71,8 @@ export function WhyPrmise() {
               Fail Task
             </div>
 
-            <div className="bg-[#FEF2F2] rounded-2xl p-4 mb-8 flex items-center gap-3">
-              <div className="bg-[#EF4444] rounded-full p-1">
-                <Check className="h-4 w-4 text-white" />
-              </div>
-              <p className="font-primary text-left">
-                Let's try better next time!{" "}
-                <span className="text-primary font-semibold">₹150</span> will go
-                to Animal Welfare!
-              </p>
+            <div className="flex items-center mb-4">
+              <Image width={362} height={102} src={failTask} alt={""} />
             </div>
 
             <ul className="space-y-4 text-left">

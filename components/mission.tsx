@@ -39,7 +39,7 @@ export function Mission() {
               Year's resolution in February.
             </p>
             <p className="mb-2">Then came our aha! moment:</p>
-            <blockquote className="text-black text-center md:text-left font-medium my-4 md:my-2">
+            <blockquote className="text-black md:text-left font-medium my-4 md:my-2">
               "Commitment becomes unbreakable when you have something real on
               the line."
             </blockquote>

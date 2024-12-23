@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <section className="py-20 text-center h-full">
       <div className="mx-auto">
-        <div className="hidden md:inline-block mb-1 md:mb-4 rounded-full bg-primary px-[8px] py-[3px] md:px-4 md:py-1">
+        <div className="hidden md:inline-block mb-1 rounded-full bg-primary md:px-4 md:py-1">
           <span className="md:text-xs text-[8px] font-light text-off-white uppercase tracking-wide font-primary">
             THE #1 ACCOUNTABILITY TOOL
           </span>
@@ -44,7 +44,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 mt-32 bg-[#F5F5F5] space-y-3 py-6 w-full md:h-18">
+      <div className="grid grid-cols-1 md:grid-cols-3 items-center mt-32 bg-[#F5F5F5] space-y-3 py-6 w-full md:h-18">
         <div className="flex items-center justify-center space-x-1 ">
           <Icons.logoPoint className="w-6 h-6" />
           <span className="text-lg font-primary">100% Non-Profit</span>
