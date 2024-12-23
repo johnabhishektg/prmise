@@ -4,7 +4,7 @@ import foundersImg from "../public/images/founders.png";
 
 export function Mission() {
   return (
-    <section className="py-20 md:h-screen h-auto bg-off-white">
+    <section className="pt-20 pb-10 md:h-screen h-auto bg-off-white">
       <div className="container mx-0 md:mx-16">
         <header className="flex items-center justify-center mb-12">
           <div className="">
@@ -17,13 +17,13 @@ export function Mission() {
           </div>
         </header>
 
-        <div className="flex md:flex-col max-w-fit justify-center align-top md:justify-between">
+        <div className="md:flex md:justify-between align-items">
           <Image
             src={foundersImg}
             alt={""}
             className="w-[489px] h-[374px] object-cover rounded-lg"
           />
-          <div className="md:w-1/2 md:mt-0 mt-4 mb-12 text-[18px]">
+          <div className="md:w-1/2 w-auto md:mt-0 md:mr-12 mt-4 mb-12 text-lg text-[#ADADAD]">
             <p className="mb-2">
               <span className="text-primary font-medium">
                 We're John and Bhavesh, the brains (and hearts) behind Prmise.
@@ -39,7 +39,7 @@ export function Mission() {
               Year's resolution in February.
             </p>
             <p className="mb-2">Then came our aha! moment:</p>
-            <blockquote className="text-black text-2xl md:text-base text-center md:font-medium my-4 md:my-2">
+            <blockquote className="text-black text-center md:text-left font-medium my-4 md:my-2">
               "Commitment becomes unbreakable when you have something real on
               the line."
             </blockquote>
