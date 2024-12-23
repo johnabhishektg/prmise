@@ -16,7 +16,7 @@ export function HowItWorks() {
             </div>
           </div>
         </header>
-        <div className="md:flex flex-row items-center justify-around px-24 space-y-8">
+        <div className="md:flex items-center md:justify-around px-24 space-y-8">
           <Card className="w-[289px] h-[335px] bg-zinc/5 border-zinc/20 mt-[32px]">
             <Image src={img} alt={""} className="mb-3 pl-4 pt-4" />
             <div className="pt-3 px-4 pb-6">
