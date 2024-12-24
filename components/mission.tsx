@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import foundersImg from "../public/images/founders.png";
+import Link from "next/link";
 
 export function Mission() {
   return (
@@ -55,12 +56,14 @@ export function Mission() {
           </div>
         </div>
         <div className="text-center flex items-center justify-center">
-          <Button
-            size="lg"
-            className=" bg-primary text-off-white hover:bg-primary/90"
-          >
-            Make Your Promise
-          </Button>
+          <Link href="/create">
+            <Button
+              size="lg"
+              className=" bg-primary text-off-white hover:bg-primary/90"
+            >
+              Make Your Promise
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

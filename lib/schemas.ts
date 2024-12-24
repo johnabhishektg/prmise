@@ -5,7 +5,9 @@ export const promiseFormSchema = z.object({
   frequency: z.enum(["one-time", "weekly", "daily"], {
     required_error: "Please select a frequency",
   }),
-  endDate: z.string().min(1, "Please select an end date"),
+  endDate: z.date({
+    required_error: "Please select an end date",
+  }),
   agreedToTerms: z.boolean().refine((val) => val === true, {
     message: "You must agree to the terms and conditions",
   }),

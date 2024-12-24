@@ -1,9 +1,11 @@
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Icons } from "./icons";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 export function Hero() {
   return (
-    <section className="py-20 text-center h-full">
+    <section className="pt-12 md:py-20 text-center h-full">
       <div className="mx-auto">
         <div className="hidden md:inline-block mb-1 rounded-full bg-primary md:px-4 md:py-1">
           <span className="md:text-xs text-[8px] font-light text-off-white uppercase tracking-wide font-primary">
@@ -11,7 +13,7 @@ export function Hero() {
           </span>
         </div>
 
-        <h1 className="text-3xl md:mb-5 md:text-8xl font-bold text-primary max-w-full mx-auto leading-tight font-primary">
+        <h1 className="text-4xl md:mb-5 md:text-8xl font-bold text-primary max-w-full mx-auto leading-tight font-primary">
           Put your money
           <br />
           Where your mouth is
@@ -22,19 +24,31 @@ export function Hero() {
           care about.
         </p>
 
-        <div className="flex items-center justify-center space-y-2 md:space-x-4">
-          <Button
-            size="sm"
-            className="block md:hidden bg-[#1A4B84] text-off-white hover:bg-[#1B365D]/90 md:px-8 md:py-6 text-sm md:text-lg font-primary"
+        <div className="flex items-center  justify-center space-y-2 md:space-x-4">
+          <Link
+            className={cn(
+              buttonVariants({
+                size: "sm",
+                className:
+                  "inline-block h-auto px-4 py-2 md:hidden align-middle bg-[#1A4B84] text-off-white hover:bg-[#1B365D]/90 text-sm font-primary",
+              })
+            )}
+            href="/create"
           >
             Make Your Promise
-          </Button>
-          <Button
-            size="xl"
-            className="hidden md:block rounded-xl bg-[#1A4B84] text-off-white hover:bg-[#1B365D]/90 text-xl font-semibold font-primary"
+          </Link>
+          <Link
+            className={cn(
+              buttonVariants({
+                size: "xl",
+                className:
+                  "hidden h-auto py-4 w-[284px] md:inline-block rounded-xl align-middle bg-[#1A4B84] text-off-white hover:bg-[#1B365D]/90 text-xl font-semibold font-primary",
+              })
+            )}
+            href="/create"
           >
             Make Your Promise
-          </Button>
+          </Link>
         </div>
         <div className="flex mt-2 gap-1 items-center justify-center">
           <div className="size-1.5 mt-1 rounded-full bg-[#6AB46A]" />

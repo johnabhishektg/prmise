@@ -1,4 +1,4 @@
-import {} from "lucide-react";
+import { BookHeart, Dog, Ribbon } from "lucide-react";
 
 import { LucideProps, Twitter, Instagram, Linkedin } from "lucide-react";
 
@@ -6,6 +6,9 @@ export const Icons = {
   twitter: Twitter,
   instagram: Instagram,
   linkedin: Linkedin,
+  bookHeart: BookHeart,
+  dog: Dog,
+  ribbon: Ribbon,
 
   navLogo: (props: LucideProps) => (
     <svg

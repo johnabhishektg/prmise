@@ -1,6 +1,5 @@
 "use client";
 
-import { Check } from "lucide-react";
 import Image from "next/image";
 import wpbg from "../public/images/wpbg.png";
 import failTask from "../public/images/failtask.png";
@@ -9,7 +8,7 @@ import { Icons } from "./icons";
 
 export function WhyPrmise() {
   return (
-    <section className="relative md:h-screen pb-12 md:pb-0 flex items-center justify-center md:bg-secondary bg-primary">
+    <section className="relative md:h-screen pb-12 md:pb-0 flex items-center justify-center md:bg-off-white bg-primary">
       <Image
         src={wpbg}
         alt={""}

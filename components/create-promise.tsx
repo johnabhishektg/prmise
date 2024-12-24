@@ -1,13 +1,7 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
-import { ThumbsUp } from "lucide-react";
 import {
   Form,
   FormControl,
@@ -16,13 +10,27 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import { promiseFormSchema, type PromiseFormValues } from "@/lib/schemas";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { CalendarIcon } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { Calendar } from "./ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import { cn } from "@/lib/utils";
+import { format } from "date-fns";
 
 interface CreatePromiseProps {
   formData: Partial<PromiseFormValues>;
   updateFormData: (data: Partial<PromiseFormValues>) => void;
   onNext: () => void;
 }
+
+const frequencyOptions = [
+  { value: "one-time", label: "One Time" },
+  { value: "weekly", label: "Weekly" },
+  { value: "daily", label: "Daily" },
+];
 
 export function CreatePromise({
   formData,
@@ -34,7 +42,7 @@ export function CreatePromise({
     defaultValues: {
       promise: formData.promise || "",
       frequency: formData.frequency || "weekly",
-      endDate: formData.endDate || "",
+      endDate: formData.endDate ? new Date(formData.endDate) : undefined,
       agreedToTerms: formData.agreedToTerms || false,
     },
   });
@@ -45,11 +53,10 @@ export function CreatePromise({
   };
 
   return (
-    <div className="space-y-8">
-      <div className="flex items-center gap-2">
-        <ThumbsUp className="h-8 w-8 text-primary" />
-        <h1 className="text-2xl md:text-3xl font-bold font-primary">
-          I promise to go
+    <div className="space-y-8 max-w-xl container mx-auto">
+      <div className="flex items-center justify-center gap-2">
+        <h1 className="text-2xl md:text-5xl font-medium font-primary">
+          I promise to...
         </h1>
       </div>
 
@@ -60,11 +67,13 @@ export function CreatePromise({
             name="promise"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="font-primary">Create Promise</FormLabel>
+                <FormLabel className="font-primary font-normal text-xl">
+                  Create Promise
+                </FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="ex: Gym 3x"
-                    className="font-primary"
+                    placeholder="ex: Gym 3x per week"
+                    className="font-primary rounded-full px-4 bg-off-white"
                     {...field}
                   />
                 </FormControl>
@@ -78,34 +87,28 @@ export function CreatePromise({
             name="frequency"
             render={({ field }) => (
               <FormItem className="space-y-2">
-                <FormLabel className="font-primary">
+                <FormLabel className="font-primary font-normal text-xl">
                   What&apos;s the Frequency
                 </FormLabel>
                 <FormControl>
-                  <RadioGroup
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                    className="flex gap-4"
-                  >
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="one-time" id="one-time" />
-                      <Label htmlFor="one-time" className="font-primary">
-                        One Time
-                      </Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="weekly" id="weekly" />
-                      <Label htmlFor="weekly" className="font-primary">
-                        Weekly
-                      </Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="daily" id="daily" />
-                      <Label htmlFor="daily" className="font-primary">
-                        Daily
-                      </Label>
-                    </div>
-                  </RadioGroup>
+                  <div className="flex gap-2">
+                    {frequencyOptions.map((option) => (
+                      <Button
+                        key={option.value}
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        className={`rounded-full w-[125px] h-[47px] font-primary transition-colors ${
+                          field.value === option.value
+                            ? "border-primary bg-[#FFF3F1] text-primary hover:text-primary"
+                            : "bg-off-white text-[#000] hover:bg-[#FFF3F1]"
+                        }`}
+                        onClick={() => field.onChange(option.value)}
+                      >
+                        {option.label}
+                      </Button>
+                    ))}
+                  </div>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -116,11 +119,41 @@ export function CreatePromise({
             control={form.control}
             name="endDate"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="font-primary">End date</FormLabel>
-                <FormControl>
-                  <Input type="date" className="font-primary" {...field} />
-                </FormControl>
+              <FormItem className="flex flex-col">
+                <FormLabel className="font-primary font-normal text-xl">
+                  End date
+                </FormLabel>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <FormControl>
+                      <Button
+                        variant={"outline"}
+                        className={cn(
+                          "w-full pl-3 px-4 text-left font-normal font-primary rounded-full bg-off-white",
+                          !field.value && "text-muted-foreground"
+                        )}
+                      >
+                        {field.value ? (
+                          format(field.value, "PPP")
+                        ) : (
+                          <span>Pick a date</span>
+                        )}
+                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                      </Button>
+                    </FormControl>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={field.value}
+                      onSelect={field.onChange}
+                      disabled={(date) =>
+                        date < new Date() || date < new Date("1900-01-01")
+                      }
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
                 <FormMessage />
               </FormItem>
             )}
