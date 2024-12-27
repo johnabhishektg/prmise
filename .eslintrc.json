@@ -4,6 +4,7 @@
     "react/no-unescaped-entities": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "@next/next/no-img-element": "warn",
-    "jsx-a11y/alt-text": "error"
+    "jsx-a11y/alt-text": "error",
+    "@typescript-eslint/no-require-imports": "off"
   }
 }
